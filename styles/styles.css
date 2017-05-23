@@ -2,9 +2,10 @@
 @myDiv-fg: #f00;*/
 
 body {
-  background-color: blue;
+  background-color: black;
 }
 
 div.myDiv {
-  color: yellow;
+  color: red;
+  text-align: center;
 }
