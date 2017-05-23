@@ -1,0 +1,10 @@
+/*@body-bg: #000;
+@myDiv-fg: #f00;*/
+
+body {
+  background-color: blue;
+}
+
+div.myDiv {
+  color: yellow;
+}
