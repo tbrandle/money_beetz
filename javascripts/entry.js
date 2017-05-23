@@ -1,4 +1,4 @@
-require('../less/main.less');
+require('../styles/styles.css');
 
 'use strict';
 
