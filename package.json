@@ -16,11 +16,12 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "start": "./node_modules/electron-prebuilt/dist/Electron.app/Contents/MacOS/Electron .",
+    "start": "./node_modules/electron/dist/Electron.app/Contents/MacOS/Electron .",
     "watch": "./node_modules/.bin/webpack-dev-server",
     "electron-rebuild": "./node_modules/.bin/electron-rebuild"
   },
   "dependencies": {
+    "electron": "^1.6.8",
     "electron-prebuilt": "^0.37.2",
     "menubar": "^5.2.3",
     "react": "^0.14.7",

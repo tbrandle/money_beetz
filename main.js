@@ -1,5 +1,5 @@
-var app = require('app');
-var BrowserWindow = require('browser-window');
+// var app = require('app');
+// var BrowserWindow = require('browser-window');
 const MenuBar = require('menubar');
 const menubar = MenuBar({
   window: 400,
@@ -7,7 +7,7 @@ const menubar = MenuBar({
   icon: './images/rsz_dwight.png'
 })
 
-require('crash-reporter').start();
+// require('crash-reporter').start();
 
 menubar.on('window-all-closed', function() {
   if (process.platform != 'darwin') {
