@@ -1,4 +1,5 @@
 require('../styles/styles.css');
+import YoutubeFetch from './youtube.js'
 
 'use strict';
 
@@ -10,6 +11,7 @@ var Entry = React.createClass({
     return (
       <div className="myDiv">
         Money Beetz!!
+        <YoutubeFetch />
       </div>
     )
   }
