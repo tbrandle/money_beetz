@@ -4,7 +4,7 @@ const MenuBar = require('menubar');
 const menubar = MenuBar({
   window: 400,
   height: 600,
-  icon: '/images/dwight.png'
+  icon: './images/rsz_dwight.png'
 })
 
 require('crash-reporter').start();
@@ -29,13 +29,3 @@ menubar.on('after-create-window', function () {
     }, 150);
   })
 });
-
-// mainWindow = new BrowserWindow({width: 1360, height: 800});
-//
-// mainWindow.loadUrl('file://' + __dirname + '/public/index.html');
-//
-// mainWindow.openDevTools();
-//
-// mainWindow.on('closed', function() {
-//   mainWindow = null;
-// });
