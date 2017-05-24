@@ -70,9 +70,9 @@ html {
 .btn:hover{
   cursor: pointer;
   box-shadow: 0px 0px 32px rgb(0, 255, 210);
+  text-shadow: 0px 0px 2px rgb(0, 255, 210);
+
   background-color: rgba(0, 0, 0, 0.45);
-
-
 }
 
 .btn-wrapper {
