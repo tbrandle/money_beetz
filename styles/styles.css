@@ -1,5 +1,9 @@
 /* @body-bg: #000; @myDiv-fg: #f00; */
 
+* {
+  outline: none;
+}
+
 html {
   height                : 100%;
   background-image      : url('https://newevolutiondesigns.com/images/freebies/galaxy-wallpaper-11.jpg');
@@ -12,53 +16,68 @@ html {
                           sans-serif;
 }
 
-.app-title, .header {
-  margin: auto;
-  text-align   : center;
-  font-size    : 40px;
-  font-weight  : 700;
+.app-title,
+.header {
+  margin      : auto;
+  text-align  : center;
+  font-size   : 40px;
+  font-weight : 700;
 }
 
 .app-title {
-  padding      : 20px;
-  color: hotpink;
-  text-shadow: 0px 0px 13px rgb(251, 4, 209);
+  padding     : 20px;
+  color       : hotpink;
+  text-shadow : 0px 0px 13px rgb(251, 4, 209);
 }
 
-.timer-wrapper{
-  display: flex;
-  justify-content: center;
+.timer-wrapper {
+  display         : flex;
+  justify-content : center;
 }
 
-.num, .header{
-  color: #6FC3DF;
-  text-shadow: 0px 0px 13px rgb(0, 54, 255);
-  padding-left: 21px;
+.header,
+.num {
+  padding-left : 21px;
+  color        : #6FC3DF;
+  text-shadow  : 0px 0px 13px rgb(0, 54, 255);
 }
 
 .num-span {
-  font-size: 35px;
+  font-size : 35px;
 }
 
 .btn {
   display          : block;
-  width            : 150px;
+  width            : 182px;
   height           : 50px;
   margin           : 10px;
   margin-right     : auto;
   margin-left      : auto;
   padding          : 10px;
-  color            : white;
-  background-color : black;
+  border: 3px limegreen solid;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.30);
+  color: limegreen;
+  text-shadow: 0px 0px 1px rgb(0, 255, 210);
+  box-shadow: 0px 0px 5px rgb(0, 255, 210);
   text-align       : center;
   font-family      : 'Orbitron',
                      sans-serif;
   font-size        : 20px;
+  transition: .5s all;
 }
 
-.btn-wrapper{
-  display: flex;
-  justify-content: space-around;
+.btn:hover{
+  cursor: pointer;
+  box-shadow: 0px 0px 32px rgb(0, 255, 210);
+  text-shadow: 0px 0px 2px rgb(0, 255, 210);
+
+  background-color: rgba(0, 0, 0, 0.45);
+}
+
+.btn-wrapper {
+  display         : flex;
+  justify-content : space-around;
 }
 
 .header {
@@ -79,4 +98,10 @@ html {
 
 .shadow-beet {
   margin : 10px;
+}
+
+.youtube-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

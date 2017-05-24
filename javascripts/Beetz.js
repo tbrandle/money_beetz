@@ -7,6 +7,7 @@ class Beetz extends Component {
     this.state = {
       audio: []
     }
+    };
   }
 
   playSound() {
@@ -23,17 +24,17 @@ class Beetz extends Component {
         this.state.audio.push(audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8)
         shuffle.pick(this.state.audio).play()
       }
-    })
+    });
   }
 
   render() {
-    return(
+    return (
       <div>
         <p>In the Beetz</p>
         { this.playSound() }
         <img className='shadow-beet' height='100' width='100' src='../images/beetShadow.png'></img>
       </div>
-    )
+    );
   }
 }
 

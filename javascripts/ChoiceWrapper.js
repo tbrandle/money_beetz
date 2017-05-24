@@ -3,25 +3,30 @@ import YoutubeFetch from './Youtube.js';
 import Beetz from './Beetz';
 
 export default class ChoiceWrapper extends Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
       selection: ''
-    }
+    };
   }
 
+
   selectActivity(e){
+    console.log(this.props.pom)
+    this.props.timerCountdown(this.props.pom)
     this.setState({ selection: e.target.value})
   }
 
-  render(){
+  render() {
     return (
-      <div className="btn-wrapper">
-        <button onClick={(e) => this.selectActivity(e)} value="youtube" className="btn">YouTube</button>
-        <button onClick={(e) => this.selectActivity(e)} value="beetz" className="btn">Fresh Beetz</button>
+      <div>
+        <div className="btn-wrapper">
+          <button onClick={(e) => this.selectActivity(e)} value="youtube" className="btn">YouTube</button>
+          <button onClick={(e) => this.selectActivity(e)} value="beetz" className="btn">Fresh Beetz</button>
+        </div>
         { this.state.selection === 'youtube' && <YoutubeFetch />}
         { this.state.selection === 'beetz' && <Beetz />}
       </div>
-    )
+    );
   }
 }
