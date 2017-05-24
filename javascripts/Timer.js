@@ -45,8 +45,10 @@ export default class Timer extends Component {
     return (
       <div>
         <h2 className='header'>{status}</h2>
-        <p className='min num'>{this.state[status].min}m</p>
-        <p className='sec num'>{this.state[status].sec}sec</p>
+        <div className="timer-wrapper">
+          <p className='min num'><span className="num-span">{this.state[status].min}</span>m</p>
+          <p className='sec num'><span className="num-span">{this.state[status].sec}</span>sec</p>
+        </div>
         { this.state.status === "timer" && <button className='btn' onClick={() => this.timerCountdown(this.state[status]) }>Start {status}</button> }
         { this.renderChoiceWrapper() }
       </div>

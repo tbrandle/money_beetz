@@ -10,7 +10,8 @@ export default class App extends Component {
 
   render(){
     return (
-      <div className="app-title">Money Beetz
+      <div>
+        <h1 className="app-title">Money Beetz</h1>
         <Timer />
       </div>
     )

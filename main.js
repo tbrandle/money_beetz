@@ -20,7 +20,6 @@ menubar.on('ready', function() {
 });
 
 menubar.on('after-create-window', function () {
-  console.log(menubar.window);
   menubar.window.loadURL('file://' + __dirname + '/public/index.html');
   menubar.window.on('resize', () => {
     clearTimeout(resizeTimer);
