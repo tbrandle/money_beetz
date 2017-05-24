@@ -13,7 +13,6 @@ class YoutubeFetch extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    console.log('something');
     return nextState.videos !== this.state.videos
   }
 
@@ -35,7 +34,6 @@ class YoutubeFetch extends Component {
   }
 
   appendVideos() {
-    console.log("HERE", this.state.videos);
     return this.state.videos.map((videoID, key) => {
       return (
         <div key={key}>
