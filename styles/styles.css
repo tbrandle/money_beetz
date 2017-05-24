@@ -1,7 +1,7 @@
 /* @body-bg: #000; @myDiv-fg: #f00; */
 
 html {
-  height            : 100%;
+  /*height            : inherit;*/
   background-image  : url('https://newevolutiondesigns.com/images/freebies/galaxy-wallpaper-11.jpg');
   background-color  : black;
   background-repeat : space;
