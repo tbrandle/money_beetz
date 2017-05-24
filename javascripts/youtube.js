@@ -26,8 +26,9 @@ class YoutubeFetch extends Component {
      return response.json();
    })
    .then(json => {
-     return json.items.map(a => {
-       this.state.videos.push(a.id)
+     return json.items.map(video => {
+       const newState = [...this.state.videos, video.id]
+       this.setState({ videos: newState })
        return this.state.videos
      })
    })
@@ -37,7 +38,9 @@ class YoutubeFetch extends Component {
     console.log("HERE", this.state.videos);
     return this.state.videos.map((videoID, key) => {
       return (
-        <a key={key} href={`https://youtube.com/watch?v=${videoID}`}></a>
+        <div key={key}>
+          <iframe src={`https://youtube.com/embed/${videoID}`}></iframe>
+        </div>
       )
     })
   }
@@ -46,7 +49,7 @@ class YoutubeFetch extends Component {
     return (
       <section>
         <h1>Youtube</h1>
-        { this.state.videos.length && this.appendVideos() }
+        { this.appendVideos() }
       </section>
     )
   }
