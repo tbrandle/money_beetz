@@ -18,3 +18,22 @@ html {
   margin-right: auto;
   padding: 20px;
 }
+
+
+.btn{
+  font-family: 'Orbitron', sans-serif;
+  width: 80px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  margin: 10px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header{
+  font-size: 30px;
+  font-weight: normal;
+}
