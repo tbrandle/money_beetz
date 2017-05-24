@@ -10,8 +10,11 @@ export default class ChoiceWrapper extends Component {
     };
   }
 
-  selectActivity(e) {
-    this.setState({ selection: e.target.value });
+
+  selectActivity(e){
+    console.log(this.props.pom)
+    this.props.timerCountdown(this.props.pom)
+    this.setState({ selection: e.target.value})
   }
 
   render() {
