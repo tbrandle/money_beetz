@@ -3,18 +3,18 @@ import YoutubeFetch from './Youtube.js';
 import Beetz from './Beetz';
 
 export default class ChoiceWrapper extends Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
       selection: ''
-    }
+    };
   }
 
-  selectActivity(e){
-    this.setState({ selection: e.target.value})
+  selectActivity(e) {
+    this.setState({ selection: e.target.value });
   }
 
-  render(){
+  render() {
     return (
       <div>
         <div className="btn-wrapper">
@@ -24,6 +24,6 @@ export default class ChoiceWrapper extends Component {
         { this.state.selection === 'youtube' && <YoutubeFetch />}
         { this.state.selection === 'beetz' && <Beetz />}
       </div>
-    )
+    );
   }
 }

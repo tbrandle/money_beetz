@@ -4,6 +4,7 @@
   "main": "main.js",
   "devDependencies": {
     "babel-core": "^6.7.2",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
@@ -18,7 +19,8 @@
   "scripts": {
     "start": "./node_modules/electron/dist/Electron.app/Contents/MacOS/Electron .",
     "watch": "./node_modules/.bin/webpack-dev-server",
-    "electron-rebuild": "./node_modules/.bin/electron-rebuild"
+    "electron-rebuild": "./node_modules/.bin/electron-rebuild",
+    "lint": "./node_modules/.bin/eslint ./"
   },
   "dependencies": {
     "electron": "^1.6.8",

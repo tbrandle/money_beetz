@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class YoutubeFetch extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       videos: []
-    }
+    };
   }
 
   componentDidMount() {
@@ -13,24 +13,24 @@ class YoutubeFetch extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextState.videos !== this.state.videos
+    return nextState.videos !== this.state.videos;
   }
 
   fetchVideos() {
     fetch(`https://www.googleapis.com/youtube/v3/videos?key=AIzaSyAlue7aC6H1051Zixn9vt0st74PtdbSVqI&chart=mostPopular&part=contentDetails`, {
-     method: "GET",
-     headers: {"Content-Type": "application/json"}
-   })
-   .then(response => {
-     return response.json();
-   })
-   .then(json => {
-     return json.items.map(video => {
-       const newState = [...this.state.videos, video.id]
-       this.setState({ videos: newState })
-       return this.state.videos
-     })
-   })
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(json => {
+      return json.items.map(video => {
+        const newState = [...this.state.videos, video.id];
+        this.setState({ videos: newState });
+        return this.state.videos;
+      });
+    });
   }
 
   appendVideos() {
@@ -39,8 +39,8 @@ class YoutubeFetch extends Component {
         <div key={key}>
           <iframe src={`https://youtube.com/embed/${videoID}`}></iframe>
         </div>
-      )
-    })
+      );
+    });
   }
 
   render() {
@@ -49,8 +49,8 @@ class YoutubeFetch extends Component {
         <h1>Youtube</h1>
         { this.appendVideos() }
       </section>
-    )
+    );
   }
 }
 
-export default YoutubeFetch
+export default YoutubeFetch;
