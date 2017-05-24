@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 
 class YoutubeFetch extends Component {
+  constructor() {
+    super()
+    this.state = {
+      videos: []
+    }
+  }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchVideos();
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('something');
+    return nextState.videos !== this.state.videos
   }
 
   fetchVideos() {
@@ -12,19 +23,31 @@ class YoutubeFetch extends Component {
      headers: {"Content-Type": "application/json"}
    })
    .then(response => {
-     console.log(response);
      return response.json();
    })
    .then(json => {
-     json.items.map(a => {
-       console.log(a);
+     return json.items.map(a => {
+       this.state.videos.push(a.id)
+       return this.state.videos
      })
    })
   }
 
+  appendVideos() {
+    console.log("HERE", this.state.videos);
+    return this.state.videos.map((videoID, key) => {
+      return (
+        <a key={key} href={`https://youtube.com/watch?v=${videoID}`}></a>
+      )
+    })
+  }
+
   render() {
     return (
-      <div>youtube</div>
+      <section>
+        <h1>Youtube</h1>
+        { this.state.videos.length && this.appendVideos() }
+      </section>
     )
   }
 }

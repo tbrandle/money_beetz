@@ -16,23 +16,23 @@ export default class Timer extends Component {
   }
 
   timerCountdown(sec, min){
-      console.log("inside block");
+      // console.log("inside block");
       const intervalVariable = setInterval( () => {
         if (sec > 0 && min >= 0) {
           sec --;
-          console.log("subtract SEC: ", sec, min);
+          // console.log("subtract SEC: ", sec, min);
         } else if (sec === 0 && min > 0) {
           sec = 2
           min --
-          console.log("subtract MIN: ", sec, min);
+          // console.log("subtract MIN: ", sec, min);
         } else {
-          console.log("END");
+          // console.log("END");
           const timer = { sec, min }
           this.setState({ timer })
-          console.log(this.state);
+          // console.log(this.state);
           clearInterval(intervalVariable)
         }
-        console.log("end of the lin");
+        // console.log("end of the lin");
       }, 1000)
     return
   }
