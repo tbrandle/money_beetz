@@ -3,7 +3,7 @@ import ChoiceWrapper from './ChoiceWrapper';
 
 export default class Timer extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       status: 'timer',
       timer: {
@@ -14,29 +14,29 @@ export default class Timer extends Component {
         min: 5,
         sec: 0
       }
-    }
+    };
   }
 
-  timerCountdown(timeObj){
-      const intervalVariable = setInterval( () => {
-        if (timeObj.sec > 0 && timeObj.min >= 0) {
-          timeObj.sec --;
-        } else if (timeObj.sec === 0 && timeObj.min > 0) {
-          timeObj.sec = 59;
-          timeObj.min --;
-        } else {
-          this.state.status === 'timer' ? this.setState({ status: 'POM' }) : this.setState({ status: 'timer' })
-          clearInterval(intervalVariable)
-        }
-        const { min, sec } = timeObj
-        const newState = Object.assign({}, this.state, {['timeObj'] : { sec, min}})
-        this.setState(newState)
-      }, 1000)
+  timerCountdown(timeObj) {
+    const intervalVariable = setInterval(() => {
+      if (timeObj.sec > 0 && timeObj.min >= 0) {
+        timeObj.sec --;
+      } else if (timeObj.sec === 0 && timeObj.min > 0) {
+        timeObj.sec = 59;
+        timeObj.min --;
+      } else {
+        this.state.status === 'tim er' ? this.setState({ status: 'POM' }) : this.setState({ status: 'timer' });
+        clearInterval(intervalVariable);
+      }
+      const { min, sec } = timeObj;
+      const newState = Object.assign({}, this.state, { ['timeObj']: { sec, min } });
+      this.setState(newState);
+    }, 1000);
   }
 
-  renderChoiceWrapper(){
+  renderChoiceWrapper() {
     if (this.state.status === 'POM') {
-      return <ChoiceWrapper />
+      return <ChoiceWrapper />;
     }
   }
 
@@ -52,7 +52,7 @@ export default class Timer extends Component {
         { this.state.status === "timer" && <button className='btn' onClick={() => this.timerCountdown(this.state[status]) }>Start {status}</button> }
         { this.renderChoiceWrapper() }
       </div>
-    )
+    );
   }
 
 

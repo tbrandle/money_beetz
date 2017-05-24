@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+let webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -27,7 +27,7 @@ module.exports = {
         }
       },
       { test: /\.css$/, loader: 'style-loader!css-loader' },
-      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader'}
+      { test: /\.less$/, loader: 'style-loader!css-loader!less-loader' }
     ]
   },
 
@@ -35,4 +35,4 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.IgnorePlugin(new RegExp("^(fs|ipc)$"))
   ]
-}
+};
