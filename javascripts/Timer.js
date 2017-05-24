@@ -4,56 +4,50 @@ export default class Timer extends Component {
   constructor() {
     super()
     this.state = {
+      status: 'timer',
       timer: {
-        min: 1,
-        sec: 2
+        min: 25,
+        sec: 0
       },
       pom: {
         min: 1,
-        sec: 2
+        sec: 5
       }
     }
   }
 
-  timerCountdown(sec, min){
-      console.log("inside block");
+  timerCountdown(timeObj){
       const intervalVariable = setInterval( () => {
-        if (sec > 0 && min >= 0) {
-          sec --;
-          console.log("subtract SEC: ", sec, min);
-        } else if (sec === 0 && min > 0) {
-          sec = 2
-          min --
-          console.log("subtract MIN: ", sec, min);
+        if (timeObj.sec > 0 && timeObj.min >= 0) {
+          timeObj.sec --;
+        } else if (timeObj.sec === 0 && timeObj.min > 0) {
+          timeObj.sec = 59;
+          timeObj.min --;
         } else {
-          console.log("END");
-          const timer = { sec, min }
-          this.setState({ timer })
-          console.log(this.state);
           clearInterval(intervalVariable)
         }
-        console.log("end of the lin");
+        const { min, sec } = timeObj
+        const newState = Object.assign({}, this.state, {['timeObj'] : { sec, min}})
+        this.setState(newState)
       }, 1000)
-    return
   }
-
-  runTimer() {
-    const { timer, pom } = this.state;
-    if (timer.min && timer.sec) {
-      this.timerCountdown(timer.sec, timer.min)
-    } else {
-
-      //  once user clicks on distraction, trigger countdown for pom
-
-      this.timerCountdown(pom.sec, pom.min)
-    }
-  }
-
 
   render() {
+    const { timer, pom, status } = this.state;
     return (
+
+      //  if state.timer is at 0 then render pom timer
+        //  else render timer
+
       <div>
-        {this.runTimer()}
+        <h2>{status}</h2>
+        <p>{this.state[status].min}m</p>
+        <p>{timer.sec}sec</p>
+        <h2>POM Timer</h2>
+        <p>{pom.min}m</p>
+        <p>{pom.sec}sec</p>
+        <button onClick={() => this.timerCountdown(timer) }>Start Timer</button>
+        <button onClick={() => this.timerCountdown(pom) }>Start Pom</button>
       </div>
     )
   }
