@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import YoutubeFetch from './youtube';
+import YoutubeFetch from './Youtube.js';
 
 export default class ChoiceWrapper extends Component {
   constructor(){
@@ -19,6 +19,7 @@ export default class ChoiceWrapper extends Component {
       <div>
         <button onClick={(e) => this.selectActivity(e)} value="youtube" className="btn">YouTube</button>
         <button onClick={(e) => this.selectActivity(e)} value="beetz" className="btn">Fresh Beetz</button>
+        { this.state.selection === 'youtube' && <YoutubeFetch />}
       </div>
     )
   }
