@@ -9,11 +9,16 @@ export default class ChoiceWrapper extends Component {
     }
   }
 
+  selectActivity(e){
+    console.log(e.target.value);
+    this.setState({ selection: e.target.value})
+  }
+
   render(){
     return (
       <div>
-        <button onClick={() => this.setState({ selection: 'youtube'})} className="btn">YouTube</button>
-        <button onClick={() => this.setState({ selection: 'fresh beetz'})} className="btn">Fresh Beetz</button>
+        <button onClick={(e) => this.selectActivity(e)} value="youtube" className="btn">YouTube</button>
+        <button onClick={(e) => this.selectActivity(e)} value="beetz" className="btn">Fresh Beetz</button>
       </div>
     )
   }
