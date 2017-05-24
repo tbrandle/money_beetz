@@ -4,9 +4,10 @@ export default class Timer extends Component {
   constructor() {
     super()
     this.state = {
+      status: 'timer',
       timer: {
-        min: 1,
-        sec: 60
+        min: 25,
+        sec: 0
       },
       pom: {
         min: 1,
@@ -20,7 +21,7 @@ export default class Timer extends Component {
         if (timeObj.sec > 0 && timeObj.min >= 0) {
           timeObj.sec --;
         } else if (timeObj.sec === 0 && timeObj.min > 0) {
-          timeObj.sec = 60;
+          timeObj.sec = 59;
           timeObj.min --;
         } else {
           clearInterval(intervalVariable)
@@ -32,15 +33,19 @@ export default class Timer extends Component {
   }
 
   render() {
-    const { timer, pom } = this.state;
+    const { timer, pom, status } = this.state;
     return (
+
+      //  if state.timer is at 0 then render pom timer
+        //  else render timer
+
       <div>
-        <h2>Timer</h2>
-        <p>{this.state.timer.min}m</p>
-        <p>{this.state.timer.sec}sec</p>
+        <h2>{status}</h2>
+        <p>{this.state[status].min}m</p>
+        <p>{timer.sec}sec</p>
         <h2>POM Timer</h2>
-        <p>{this.state.pom.min}m</p>
-        <p>{this.state.pom.sec}sec</p>
+        <p>{pom.min}m</p>
+        <p>{pom.sec}sec</p>
         <button onClick={() => this.timerCountdown(timer) }>Start Timer</button>
         <button onClick={() => this.timerCountdown(pom) }>Start Pom</button>
       </div>
