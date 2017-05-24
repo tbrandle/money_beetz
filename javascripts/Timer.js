@@ -39,17 +39,9 @@ export default class Timer extends Component {
       <div>
         <h2 className='header'>{status}</h2>
         <p>{this.state[status].min}m</p>
-<<<<<<< HEAD
-        <p>{timer.sec}sec</p>
-        <h2 className='header'>POM Timer</h2>
-        <p>{pom.min}m</p>
-        <p>{pom.sec}sec</p>
-        <button className='start-btn btn' onClick={() => this.timerCountdown(timer) }>Start Timer</button>
-        <button className='pom-btn btn' onClick={() => this.timerCountdown(pom) }>Start Pom</button>
-=======
+
         <p>{this.state[status].sec}sec</p>
         <button onClick={() => this.timerCountdown(this.state[status]) }>Start {status}</button>
->>>>>>> 6b282e7ed3636505bedd23449213ca3b82fdf8b3
       </div>
     )
   }
