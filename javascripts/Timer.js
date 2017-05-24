@@ -8,7 +8,7 @@ export default class Timer extends Component {
       status: 'timer',
       timer: {
         min: 0,
-        sec: 10
+        sec: 2
       },
       pom: {
         min: 5,

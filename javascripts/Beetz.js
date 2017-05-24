@@ -8,11 +8,16 @@ class Beetz extends Component {
     }
   }
 
-  render() {
+  makeNoise(event) {
+    console.log(event.keyCode);
+  }
 
+
+  render() {
+    this.makeNoise(event)
     return(
       <div>
-        <p>In the Beetz</p>
+        <img className='shadow-beet' height='100' width='100' src='../images/beetShadow.png'></img>
       </div>
     )
   }
