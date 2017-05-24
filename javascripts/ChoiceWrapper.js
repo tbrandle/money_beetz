@@ -11,7 +11,6 @@ export default class ChoiceWrapper extends Component {
   }
 
   selectActivity(e){
-    console.log(e.target.value);
     this.setState({ selection: e.target.value})
   }
 

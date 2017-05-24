@@ -8,11 +8,21 @@ class Beetz extends Component {
     }
   }
 
+  playSound() {
+    document.addEventListener('keydown', (event) => {
+      if(event.keyCode === 70) {
+        let audio = new Audio("60key.wav")
+        audio.play()
+      }
+    })
+  }
+
   render() {
 
     return(
       <div>
         <p>In the Beetz</p>
+        { this.playSound() }
       </div>
     )
   }
