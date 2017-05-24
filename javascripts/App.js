@@ -12,6 +12,7 @@ export default class App extends Component {
   render(){
     return (
       <div className="app-title">Money Beetz
+        <img className='beet-icon' height='100' width='100' src='../images/beetThing.png'></img>
         <Timer />
         <Beetz />
       </div>

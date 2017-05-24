@@ -12,7 +12,7 @@ class Beetz extends Component {
 
     return(
       <div>
-        <p>In the Beetz</p>
+        <img height='100' width='100' src='../images/beetShadow.png'></img>
       </div>
     )
   }

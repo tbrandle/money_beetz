@@ -47,3 +47,9 @@ html {
   font-size   : 20px;
   font-weight : normal;
 }
+
+.beet-icon{
+  margin-left: 40px;
+  margin-right: auto;
+  margin-top: 10px;
+}
