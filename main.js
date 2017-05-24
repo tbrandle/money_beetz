@@ -2,8 +2,8 @@
 // var BrowserWindow = require('browser-window');
 const MenuBar = require('menubar');
 const menubar = MenuBar({
-  window: 400,
-  height: 600,
+  window: 600,
+  height: 700,
   icon: './images/rsz_dwight.png'
 })
 
