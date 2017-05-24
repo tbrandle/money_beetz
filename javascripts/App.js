@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Timer from './Timer';
+import YoutubeFetch from './Youtube.js';
+import Beetz from './Beetz.js';
 
 
 export default class App extends Component {
@@ -12,6 +14,8 @@ export default class App extends Component {
     return (
       <div className="app-title">Money Beetz
         <Timer />
+        <YoutubeFetch />
+        <Beetz />
       </div>
     )
   }
