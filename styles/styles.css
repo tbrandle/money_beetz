@@ -1,5 +1,9 @@
 /* @body-bg: #000; @myDiv-fg: #f00; */
 
+* {
+  outline: none;
+}
+
 html {
   height                : 100%;
   background-image      : url('https://newevolutiondesigns.com/images/freebies/galaxy-wallpaper-11.jpg');
