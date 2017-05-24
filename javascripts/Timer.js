@@ -10,7 +10,7 @@ export default class Timer extends Component {
         min: 0,
         sec: 2
       },
-      pom: {
+      POM: {
         min: 5,
         sec: 0
       }
@@ -25,7 +25,7 @@ export default class Timer extends Component {
           timeObj.sec = 59;
           timeObj.min --;
         } else {
-          this.state.status === 'timer' ? this.setState({ status: 'pom' }) : this.setState({ status: 'timer' })
+          this.state.status === 'timer' ? this.setState({ status: 'POM' }) : this.setState({ status: 'timer' })
           clearInterval(intervalVariable)
         }
         const { min, sec } = timeObj
@@ -35,7 +35,7 @@ export default class Timer extends Component {
   }
 
   renderChoiceWrapper(){
-    if (this.state.status === 'pom') {
+    if (this.state.status === 'POM') {
       return <ChoiceWrapper />
     }
   }

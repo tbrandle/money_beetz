@@ -8,15 +8,20 @@ class Beetz extends Component {
     }
   }
 
-  makeNoise(event) {
-    console.log(event.keyCode);
+  playSound() {
+    document.addEventListener('keydown', (event) => {
+      if(event.keyCode === 70) {
+        let audio = new Audio("../wav/60key.wav")
+        audio.play()
+      }
+    })
   }
 
-
   render() {
-    this.makeNoise(event)
     return(
       <div>
+        <p>In the Beetz</p>
+        { this.playSound() }
         <img className='shadow-beet' height='100' width='100' src='../images/beetShadow.png'></img>
       </div>
     )
