@@ -4,56 +4,44 @@ export default class Timer extends Component {
   constructor() {
     super()
     this.state = {
+      status: 'timer',
       timer: {
-        min: 1,
-        sec: 2
+        min: 0,
+        sec: 10
       },
       pom: {
-        min: 1,
-        sec: 2
+        min: 5,
+        sec: 0
       }
     }
   }
 
-  timerCountdown(sec, min){
-      // console.log("inside block");
+  timerCountdown(timeObj){
       const intervalVariable = setInterval( () => {
-        if (sec > 0 && min >= 0) {
-          sec --;
-          // console.log("subtract SEC: ", sec, min);
-        } else if (sec === 0 && min > 0) {
-          sec = 2
-          min --
-          // console.log("subtract MIN: ", sec, min);
+        if (timeObj.sec > 0 && timeObj.min >= 0) {
+          timeObj.sec --;
+        } else if (timeObj.sec === 0 && timeObj.min > 0) {
+          timeObj.sec = 59;
+          timeObj.min --;
         } else {
-          // console.log("END");
-          const timer = { sec, min }
-          this.setState({ timer })
-          // console.log(this.state);
+          this.state.status === 'timer' ? this.setState({ status: 'pom' }) : this.setState({ status: 'timer' })
           clearInterval(intervalVariable)
         }
-        // console.log("end of the lin");
+        const { min, sec } = timeObj
+        const newState = Object.assign({}, this.state, {['timeObj'] : { sec, min}})
+        this.setState(newState)
       }, 1000)
-    return
   }
-
-  runTimer() {
-    const { timer, pom } = this.state;
-    if (timer.min && timer.sec) {
-      this.timerCountdown(timer.sec, timer.min)
-    } else {
-
-      //  once user clicks on distraction, trigger countdown for pom
-
-      this.timerCountdown(pom.sec, pom.min)
-    }
-  }
-
 
   render() {
+    const { timer, pom, status } = this.state;
     return (
       <div>
-        {this.runTimer()}
+        <h2 className='header'>{status}</h2>
+        <p>{this.state[status].min}m</p>
+
+        <p>{this.state[status].sec}sec</p>
+        <button onClick={() => this.timerCountdown(this.state[status]) }>Start {status}</button>
       </div>
     )
   }

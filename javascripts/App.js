@@ -11,7 +11,7 @@ export default class App extends Component {
 
   render(){
     return (
-      <div>Working
+      <div className="app-title">Money Beetz
         <Timer />
         <YoutubeFetch />
       </div>
