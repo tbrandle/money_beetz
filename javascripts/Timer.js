@@ -3,7 +3,7 @@ import ChoiceWrapper from './ChoiceWrapper';
 
 export default class Timer extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       startTime: false,
       status: 'timer',
@@ -15,7 +15,7 @@ export default class Timer extends Component {
         min: 0,
         sec: 2
       }
-    }
+    };
   }
 
   timerCountdown(timeObj){
@@ -39,11 +39,13 @@ export default class Timer extends Component {
         this.setState(newState)
       }, 1000)
     }
+
   }
 
-  renderChoiceWrapper(){
+  renderChoiceWrapper() {
     if (this.state.status === 'POM') {
       return <ChoiceWrapper timerCountdown={ (timeObj) => this.timerCountdown(timeObj) } pom={ this.state.POM } />
+
     }
   }
 
@@ -59,7 +61,7 @@ export default class Timer extends Component {
         { this.state.status === "timer" && <button className='btn' onClick={() => this.timerCountdown(this.state[status]) }>Start {status}</button> }
         { this.renderChoiceWrapper() }
       </div>
-    )
+    );
   }
 
 
