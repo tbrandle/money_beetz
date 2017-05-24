@@ -1,11 +1,20 @@
 /*@body-bg: #000;
 @myDiv-fg: #f00;*/
 
-body {
-  background-color: white;
+html {
+  font-family: 'Orbitron', sans-serif;
+  background-image: url('https://newevolutiondesigns.com/images/freebies/galaxy-wallpaper-11.jpg');
+  background-repeat: space;
+  background-size: cover;
+  background-color: black;
+  height: 100%;
 }
 
-div.myDiv {
-  color: red;
+.app-title{
+  color:white;
+  font-size: 30px;
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
 }
