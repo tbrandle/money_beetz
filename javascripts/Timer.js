@@ -18,6 +18,7 @@ export default class Timer extends Component {
   }
 
   timerCountdown(timeObj){
+    console.log(timeObj);
       const intervalVariable = setInterval( () => {
         if (timeObj.sec > 0 && timeObj.min >= 0) {
           timeObj.sec --;
@@ -36,7 +37,7 @@ export default class Timer extends Component {
 
   renderChoiceWrapper(){
     if (this.state.status === 'POM') {
-      return <ChoiceWrapper />
+      return <ChoiceWrapper timerCountdown={ (timeObj) => this.timerCountdown(timeObj) } pom={ this.state.POM } />
     }
   }
 
