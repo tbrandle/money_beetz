@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ChoiceWrapper from './ChoiceWrapper';
 
 export default class Timer extends Component {
   constructor() {
@@ -33,15 +34,21 @@ export default class Timer extends Component {
       }, 1000)
   }
 
+  renderChoiceWrapper(){
+    if (this.state.status === 'pom') {
+      return <ChoiceWrapper />
+    }
+  }
+
   render() {
     const { timer, pom, status } = this.state;
     return (
       <div>
         <h2 className='header'>{status}</h2>
         <p>{this.state[status].min}m</p>
-
         <p>{this.state[status].sec}sec</p>
         <button onClick={() => this.timerCountdown(this.state[status]) }>Start {status}</button>
+        { this.renderChoiceWrapper() }
       </div>
     )
   }
