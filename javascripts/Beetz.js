@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import songs from '../songs/songArray'
 const shuffle = require('shuffle-array')
-4558a1d362e351ad39ebd5f4d441ddd9fc82a372
-
 
 class Beetz extends Component {
   constructor() {

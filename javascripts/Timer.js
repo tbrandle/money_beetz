@@ -28,11 +28,19 @@ export default class Timer extends Component {
           timeObj.sec = 59;
           timeObj.min --;
         } else {
+<<<<<<< HEAD
           this.setState({ startTime: false })
           // const newState =
           this.setState({ ['timeObj']: { min:0, sec:2 } })
           this.state.status === 'timer' ? this.setState({ status: 'POM' }) : this.setState({ status: 'timer' })
           clearInterval(intervalVariable)
+=======
+          this.setState({ startTime: false });
+          // const newState =
+          this.setState({ ['timeObj']: { min: 0, sec: 2 } });
+          this.state.status === 'timer' ? this.setState({ status: 'POM' }) : this.setState({ status: 'timer' });
+          clearInterval(intervalVariable);
+>>>>>>> ec3ce4255bde1a6b9819d6e84c303f73b1ba40d6
         }
         const { min, sec } = timeObj;
         const newState = Object.assign({}, this.state, { ['timeObj']: { sec, min } });
