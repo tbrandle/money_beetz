@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import songs from '../songs/songArray';
-
+import dozBeetz from '../wav/drummingBeetz';
 const shuffle = require('shuffle-array');
 
 class Beetz extends Component {
@@ -11,23 +11,30 @@ class Beetz extends Component {
       audio: [],
       pickSong: shuffle.pick(songs)
     };
-  }
+  };
 
   componentDidMount() {
     this.setState({ playOneSong: false });
-  }
+  };
 
   componentWillUnmount() {
     this.state.pickSong.pause();
-  }
+  };
 
-  playSound() {
+  playSong() {
     document.addEventListener('keydown', (event) => {
       if (event.keyCode === 32 && this.state.playOneSong === false) {
         this.state.pickSong.play();
         this.setState({ playOneSong: true });
-      }
+      };
     });
+  };
+
+  playBeet() {
+    document.addEventListener('keydown', (event) => {
+      const beet = dozBeetz[event.keyCode]
+      beet.play()
+    })
   }
 
   render() {
@@ -35,11 +42,12 @@ class Beetz extends Component {
       <div>
         <p className='welcome pulse'>Welcome to Money Beetz</p>
         <p className="instructions"> Press the space bar to play a fresh beet</p>
-        <img className="cat float" src="../images/cat.png" />
-        { this.playSound() }
+        <img className="cat" src="../images/cat.png" />
+        { this.playSong() }
+        { this.playBeet() }
       </div>
     );
-  }
-}
+  };
+};
 
 export default Beetz;
