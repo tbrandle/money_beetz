@@ -34,7 +34,10 @@ class Beetz extends Component {
   playBeet() {
     document.addEventListener('keydown', (event) => {
       const beet = dozBeetz[event.keyCode]
-      beet.play()
+      const beetzArray = Object.keys(dozBeetz)
+      if(beetzArray.includes(event.keyCode.toString())) {
+        beet.play()
+      }
       this.setState({ keyCode: event.keyCode })
     })
   }

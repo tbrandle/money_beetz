@@ -6,5 +6,6 @@ module.exports = {
   65: new Audio("../wav/808clap.wav"),
   83: new Audio("../wav/808drop.wav"),
   68: new Audio("../wav/drum2.wav"),
-  70: new Audio("../wav/kick0.wav")
+  70: new Audio("../wav/kick0.wav"),
+  187: new Audio("../wav/secret-fart.mp3")
 };
