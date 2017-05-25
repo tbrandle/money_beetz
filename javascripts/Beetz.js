@@ -33,7 +33,6 @@ class Beetz extends Component {
   render() {
     return (
       <div>
-        <p className='welcome pulse'>Welcome to Money Beetz</p>
         <p className="instructions"> Press the space bar to play a fresh beet</p>
         <img className="cat float" src="../images/cat.png" />
         { this.playSound() }
