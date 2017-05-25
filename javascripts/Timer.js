@@ -12,6 +12,10 @@ export default class Timer extends Component {
     };
   }
 
+  timerUpSound(){
+
+  }
+
   timerCountdown(sec, min){
     if (!this.state.startTime) {
       this.setState({ startTime: true })
