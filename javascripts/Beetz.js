@@ -7,14 +7,25 @@ class Beetz extends Component {
   constructor() {
     super();
     this.state = {
-      audio: []
+      playOneSong: false,
+      audio: [],
+      pickSong: shuffle.pick(songs)
     };
   }
 
+componentDidMount() {
+  this.setState({ playOneSong: false })
+}
+
+componentWillUnmount() {
+  this.state.pickSong.pause()
+}
+
   playSound() {
     document.addEventListener('keydown', (event) => {
-      if (event.keyCode === 32) {
-        shuffle.pick(songs).play();
+      if(event.keyCode === 32 && this.state.playOneSong === false) {
+        this.state.pickSong.play()
+        this.setState({ playOneSong: true })
       }
     });
   }
