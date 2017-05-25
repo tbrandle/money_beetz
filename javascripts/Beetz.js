@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import songs from '../songs/songArray'
-const shuffle = require('shuffle-array')
+import songs from '../songs/songArray';
+
+const shuffle = require('shuffle-array');
 
 class Beetz extends Component {
   constructor() {
@@ -12,8 +13,8 @@ class Beetz extends Component {
 
   playSound() {
     document.addEventListener('keydown', (event) => {
-      if(event.keyCode === 32) {
-        shuffle.pick(songs).play()
+      if (event.keyCode === 32) {
+        shuffle.pick(songs).play();
       }
     });
   }

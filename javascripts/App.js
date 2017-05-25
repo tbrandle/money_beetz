@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Timer from './Timer';
 
-
 export default class App extends Component {
   constructor() {
     super();
@@ -15,5 +14,4 @@ export default class App extends Component {
       </div>
     );
   }
-
 }
