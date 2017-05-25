@@ -9,7 +9,8 @@ class Beetz extends Component {
     this.state = {
       playOneSong: false,
       audio: [],
-      pickSong: shuffle.pick(songs)
+      pickSong: shuffle.pick(songs),
+      keyCode: 0
     };
   };
 
@@ -37,17 +38,27 @@ class Beetz extends Component {
       if(beetzArray.includes(event.keyCode.toString())) {
         beet.play()
       }
+      this.setState({ keyCode: event.keyCode })
     })
   }
 
   render() {
     return (
       <div>
-        <p className='welcome pulse'>Welcome to Money Beetz</p>
         <p className="instructions"> Press the space bar to play a fresh beet</p>
-        <img className="cat" src="../images/cat.png" />
+        <img className="cat float" src="../images/cat.png" />
         { this.playSong() }
         { this.playBeet() }
+        <section className="beat-machine">
+          <div id="81" className={this.state.keyCode.toString() === id ? "active block" : "block"}>Q</div>
+          <div id="87" className="block">W</div>
+          <div id="69" className="block">E</div>
+          <div id="82" className="block">R</div>
+          <div id="65" className="block">A</div>
+          <div id="83" className="block">S</div>
+          <div id="68" className="block">D</div>
+          <div id="70" className="block">F</div>
+        </section>
       </div>
     );
   };
