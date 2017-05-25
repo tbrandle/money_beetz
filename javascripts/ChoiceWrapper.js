@@ -10,16 +10,17 @@ export default class ChoiceWrapper extends Component {
     };
   }
 
-  selectActivity(e){
-    const { sec, min } = this.props
-    this.props.timerCountdown(sec, min)
-    this.setState({ selection: e.target.value})
+  selectActivity(e) {
+    const { sec, min } = this.props;
+    this.props.timerCountdown(sec, min);
+    this.setState({ selection: e.target.value });
 
   }
 
   render() {
     return (
       <div>
+        <p className='instructions'>Make a selection to start your POM</p>
         <div className="btn-wrapper">
           <button onClick={(e) => this.selectActivity(e)} value="youtube" className="btn">YouTube</button>
           <button onClick={(e) => this.selectActivity(e)} value="beetz" className="btn">Fresh Beetz</button>
