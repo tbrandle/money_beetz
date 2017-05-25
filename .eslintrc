@@ -36,6 +36,12 @@
     "no-plusplus": [0],
     "import/first": [0],
     "import/extensions": [0],
-    "no-console": [0]
+    "no-console": [0],
+    "no-param-reassign": [0],
+    "padded-blocks": [0],
+    "no-useless-computed-key": [0],
+    "eqeqeq": [0],
+    "no-path-concat": [0],
+    "prefer-template": [0]
   }
 }
