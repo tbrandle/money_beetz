@@ -6,7 +6,6 @@ class Beetz extends Component {
     super()
     this.state = {
       audio: []
-    }
     };
   }
 
