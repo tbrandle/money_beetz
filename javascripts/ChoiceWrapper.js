@@ -25,7 +25,7 @@ export default class ChoiceWrapper extends Component {
           <button onClick={(e) => this.selectActivity(e)} value="beetz" className="btn">Fresh Beetz</button>
         </div>
         { this.state.selection === 'youtube' && <YoutubeFetch />}
-        { this.state.selection === 'beetz' && <Beetz />}
+        { this.state.selection === 'beetz' && <Beetz defProps={ this.props }/>}
       </div>
     );
   }
