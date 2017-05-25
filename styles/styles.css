@@ -113,6 +113,12 @@ html {
   font-size   : 20px;
 }
 
+.cat{
+  /*height: 80px;*/
+  width: 200px;
+  margin: 0 20%;
+}
+
 @keyframes pulse {
   0% {
     transform : scale(1);
