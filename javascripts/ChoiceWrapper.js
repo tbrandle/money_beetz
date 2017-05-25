@@ -19,11 +19,11 @@ export default class ChoiceWrapper extends Component {
   render() {
     return (
       <div>
-        <p className='instructions'>Make a selection to start your POM</p>
         <div className="btn-wrapper">
           <button onClick={(e) => this.selectActivity(e)} value="youtube" className="btn">YouTube</button>
           <button onClick={(e) => this.selectActivity(e)} value="beetz" className="btn">Fresh Beetz</button>
         </div>
+        { this.state.selection === '' && <p className='instructions'>Make a selection to start your POM</p> }
         { this.state.selection === 'youtube' && <YoutubeFetch />}
         { this.state.selection === 'beetz' && <Beetz defProps={ this.props }/>}
       </div>

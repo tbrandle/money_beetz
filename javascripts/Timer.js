@@ -12,11 +12,6 @@ export default class Timer extends Component {
     };
   }
 
-
-  timerUpSound(){
-
-  }
-
   timerCountdown(sec, min) {
     if (!this.state.startTime) {
       this.setState({ startTime: true });
@@ -27,10 +22,10 @@ export default class Timer extends Component {
           sec = 59;
           min--;
         } else {
-          this.setState({ startTime: false })
-          this.state.status === 'timer' ? this.setState({ status: 'POM', min: 1, sec: 2 }) : this.setState({ status: 'timer', min: 1, sec: 0 })
-          clearInterval(intervalVariable)
-          return
+          this.setState({ startTime: false });
+          this.state.status === 'timer' ? this.setState({ status: 'POM', min: 1, sec: 2 }) : this.setState({ status: 'timer', min: 1, sec: 0 });
+          clearInterval(intervalVariable);
+          return;
         }
         this.setState({ sec, min });
       }, 1000);
