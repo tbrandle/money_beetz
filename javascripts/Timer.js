@@ -18,10 +18,10 @@ export default class Timer extends Component {
     };
   }
 
-  timerCountdown(timeObj){
+  timerCountdown(timeObj) {
     if (!this.state.startTime) {
-      this.setState({ startTime: true })
-      const intervalVariable = setInterval( () => {
+      this.setState({ startTime: true });
+      const intervalVariable = setInterval(() => {
         if (timeObj.sec > 0 && timeObj.min >= 0) {
           timeObj.sec --;
         } else if (timeObj.sec === 0 && timeObj.min > 0) {
@@ -34,17 +34,17 @@ export default class Timer extends Component {
           this.state.status === 'timer' ? this.setState({ status: 'POM' }) : this.setState({ status: 'timer' })
           clearInterval(intervalVariable)
         }
-        const { min, sec } = timeObj
-        const newState = Object.assign({}, this.state, {['timeObj'] : { sec, min}})
-        this.setState(newState)
-      }, 1000)
+        const { min, sec } = timeObj;
+        const newState = Object.assign({}, this.state, { ['timeObj']: { sec, min } });
+        this.setState(newState);
+      }, 1000);
     }
 
   }
 
   renderChoiceWrapper() {
     if (this.state.status === 'POM') {
-      return <ChoiceWrapper timerCountdown={ (timeObj) => this.timerCountdown(timeObj) } pom={ this.state.POM } />
+      return <ChoiceWrapper timerCountdown={ (timeObj) => this.timerCountdown(timeObj) } pom={ this.state.POM } />;
 
     }
   }
