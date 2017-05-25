@@ -12,19 +12,19 @@ class Beetz extends Component {
     };
   }
 
-componentDidMount() {
-  this.setState({ playOneSong: false })
-}
+  componentDidMount() {
+    this.setState({ playOneSong: false });
+  }
 
-componentWillUnmount() {
-  this.state.pickSong.pause()
-}
+  componentWillUnmount() {
+    this.state.pickSong.pause();
+  }
 
   playSound() {
     document.addEventListener('keydown', (event) => {
-      if(event.keyCode === 32 && this.state.playOneSong === false) {
-        this.state.pickSong.play()
-        this.setState({ playOneSong: true })
+      if (event.keyCode === 32 && this.state.playOneSong === false) {
+        this.state.pickSong.play();
+        this.setState({ playOneSong: true });
       }
     });
   }
@@ -34,6 +34,7 @@ componentWillUnmount() {
       <div>
         <p className='welcome pulse'>Welcome to Money Beetz</p>
         <p className="instructions"> Press the space bar to play a fresh beet</p>
+        <img className="cat" src="../images/cat.png" />
         { this.playSound() }
       </div>
     );
