@@ -30,10 +30,9 @@ class Beetz extends Component {
   render() {
     return (
       <div>
-        <p className='welcome'>Welcome to Money Beetz</p>
+        <p className='welcome pulse'>Welcome to Money Beetz</p>
         <p className="instructions"> Press the space bar to play a fresh beet</p>
         { this.playSound() }
-        <img className='shadow-beet' height='100' width='100' src='../images/beetShadow.png'></img>
       </div>
     );
   }
