@@ -50,7 +50,7 @@ class Beetz extends Component {
         { this.playSong() }
         { this.playBeet() }
         <section className="beat-machine">
-          <div id="81" className={this.state.keyCode.toString() === id ? "active block" : "block"}>Q</div>
+          <div id="81" className="block">Q</div>
           <div id="87" className="block">W</div>
           <div id="69" className="block">E</div>
           <div id="82" className="block">R</div>
