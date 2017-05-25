@@ -23,7 +23,7 @@ export default class Timer extends Component {
           min --;
         } else {
           this.setState({ startTime: false })
-          this.state.status === 'timer' ? this.setState({ status: 'POM', min: 0, sec: 4 }) : this.setState({ status: 'timer', min: 0, sec: 4 })
+          this.state.status === 'timer' ? this.setState({ status: 'POM', min: 0, sec: 10 }) : this.setState({ status: 'timer', min: 0, sec: 4 })
           clearInterval(intervalVariable)
           return
         }
@@ -37,7 +37,8 @@ export default class Timer extends Component {
       return <ChoiceWrapper
                 timerCountdown={ (sec, min) => this.timerCountdown(sec, min) }
                 min={ this.state.min }
-                sec={ this.state.sec } />
+                sec={ this.state.sec }
+                status={ this.state.status }/>
 
     }
   }
