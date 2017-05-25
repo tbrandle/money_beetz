@@ -12,23 +12,23 @@ export default class Timer extends Component {
     };
   }
 
-  timerCountdown(sec, min){
+  timerCountdown(sec, min) {
     if (!this.state.startTime) {
-      this.setState({ startTime: true })
-      const intervalVariable = setInterval( () => {
+      this.setState({ startTime: true });
+      const intervalVariable = setInterval(() => {
         if (sec > 0 && min >= 0) {
-          sec --;
+          sec--;
         } else if (sec === 0 && min > 0) {
           sec = 59;
-          min --;
+          min--;
         } else {
-          this.setState({ startTime: false })
-          this.state.status === 'timer' ? this.setState({ status: 'POM', min: 0, sec: 10 }) : this.setState({ status: 'timer', min: 0, sec: 4 })
-          clearInterval(intervalVariable)
-          return
+          this.setState({ startTime: false });
+          this.state.status === 'timer' ? this.setState({ status: 'POM', min: 0, sec: 2 }) : this.setState({ status: 'timer', min: 1, sec: 0 });
+          clearInterval(intervalVariable);
+          return;
         }
-        this.setState({ sec, min })
-      }, 1000)
+        this.setState({ sec, min });
+      }, 1000);
     }
   }
 
@@ -37,9 +37,7 @@ export default class Timer extends Component {
       return <ChoiceWrapper
                 timerCountdown={ (sec, min) => this.timerCountdown(sec, min) }
                 min={ this.state.min }
-                sec={ this.state.sec }
-                status={ this.state.status }/>
-
+                sec={ this.state.sec } />;
     }
   }
 
