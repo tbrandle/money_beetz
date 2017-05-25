@@ -119,6 +119,19 @@ html {
   margin: 0 20%;
 }
 
+.float {
+  -webkit-animation-name: Floating;
+    -webkit-animation-duration: 5s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes Floating{
+    from {-webkit-transform:translate(0, 0px);}
+    65% {-webkit-transform:translate(0, 8px);}
+    to {-webkit-transform: translate(0, -0px);    }
+}
+
 @keyframes pulse {
   0% {
     transform : scale(1);
