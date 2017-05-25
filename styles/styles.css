@@ -113,6 +113,26 @@ html {
   font-size   : 15px;
 }
 
+.beat-machine{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 100px;
+  margin: 4px;
+  background-color: rgba(0, 0, 0, 0.53);
+  border: 2px limegreen solid;
+  border-radius: 17px;
+color: rgba(128, 128, 128, 0.59);
+font-size: 42px;
+}
+
 .cat{
   width: 150px;
   margin: 0 26%;
