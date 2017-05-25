@@ -1,5 +1,3 @@
-// var app = require('app');
-// var BrowserWindow = require('browser-window');
 const MenuBar = require('menubar');
 
 const menubar = MenuBar({
@@ -7,8 +5,6 @@ const menubar = MenuBar({
   height: 700,
   icon: './images/rsz_beet.png'
 });
-
-// require('crash-reporter').start();
 
 menubar.on('window-all-closed', function () {
   if (process.platform != 'darwin') {
