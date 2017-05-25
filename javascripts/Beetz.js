@@ -13,19 +13,19 @@ class Beetz extends Component {
     };
   }
 
-componentDidMount() {
-  this.setState({ playOneSong: false })
-}
+  componentDidMount() {
+    this.setState({ playOneSong: false });
+  }
 
-componentWillUnmount() {
-  this.state.pickSong.pause()
-}
+  componentWillUnmount() {
+    this.state.pickSong.pause();
+  }
 
   playSound() {
     document.addEventListener('keydown', (event) => {
-      if(event.keyCode === 32 && this.state.playOneSong === false) {
-        this.state.pickSong.play()
-        this.setState({ playOneSong: true })
+      if (event.keyCode === 32 && this.state.playOneSong === false) {
+        this.state.pickSong.play();
+        this.setState({ playOneSong: true });
       }
     });
   }
