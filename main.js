@@ -5,7 +5,7 @@ const MenuBar = require('menubar');
 const menubar = MenuBar({
   window: 600,
   height: 700,
-  icon: './images/rsz_dwight.png'
+  icon: './images/rsz_beet.png'
 });
 
 // require('crash-reporter').start();
