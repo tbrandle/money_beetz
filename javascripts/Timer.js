@@ -7,62 +7,53 @@ export default class Timer extends Component {
     this.state = {
       startTime: false,
       status: 'timer',
-      timer: {
-        min: 0,
-        sec: 2
-      },
-      POM: {
-        min: 0,
-        sec: 60
-      }
+      min: 0,
+      sec: 2
     };
   }
 
-  timerCountdown(timeObj) {
+  timerCountdown(sec, min){
     if (!this.state.startTime) {
-      this.setState({ startTime: true });
-      const intervalVariable = setInterval(() => {
-        if (timeObj.sec > 0 && timeObj.min >= 0) {
-          timeObj.sec --;
-        } else if (timeObj.sec === 0 && timeObj.min > 0) {
-          timeObj.sec = 59;
-          timeObj.min --;
+      this.setState({ startTime: true })
+      const intervalVariable = setInterval( () => {
+        if (sec > 0 && min >= 0) {
+          sec --;
+        } else if (sec === 0 && min > 0) {
+          sec = 59;
+          min --;
         } else {
-          this.setState({ startTime: false });
-          // const newState =
-          this.setState({ ['timeObj']: { min: 0, sec: 2 } });
-          this.state.status === 'timer' ? this.setState({ status: 'POM' }) : this.setState({ status: 'timer' });
-          clearInterval(intervalVariable);
+          this.setState({ startTime: false })
+          this.state.status === 'timer' ? this.setState({ status: 'POM', min: 0, sec: 2 }) : this.setState({ status: 'timer', min: 1, sec: 0 })
+          clearInterval(intervalVariable)
+          return
         }
-        const { min, sec } = timeObj;
-        const newState = Object.assign({}, this.state, { ['timeObj']: { sec, min } });
-        this.setState(newState);
-      }, 1000);
+        this.setState({ sec, min })
+      }, 1000)
     }
-
   }
 
   renderChoiceWrapper() {
     if (this.state.status === 'POM') {
-      return <ChoiceWrapper timerCountdown={ (timeObj) => this.timerCountdown(timeObj) } pom={ this.state.POM } />;
+      return <ChoiceWrapper
+                timerCountdown={ (sec, min) => this.timerCountdown(sec, min) }
+                min={ this.state.min }
+                sec={ this.state.sec } />
 
     }
   }
 
   render() {
-    const { timer, pom, status } = this.state;
+    const { min, sec, status } = this.state;
     return (
       <div>
         <h2 className='header'>{status}</h2>
         <div className="timer-wrapper">
-          <p className='min num'><span className="num-span">{this.state[status].min}</span>m</p>
-          <p className='sec num'><span className="num-span">{this.state[status].sec}</span>sec</p>
+          <p className='min num'><span className="num-span">{min}</span>m</p>
+          <p className='sec num'><span className="num-span">{sec}</span>sec</p>
         </div>
-        { this.state.status === "timer" && <button className='btn' onClick={() => this.timerCountdown(this.state[status]) }>Start {status}</button> }
+        { this.state.status === "timer" && <button className='btn' onClick={() => this.timerCountdown(sec, min) }>Start {status}</button> }
         { this.renderChoiceWrapper() }
       </div>
     );
   }
-
-
 }
