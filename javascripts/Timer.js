@@ -12,7 +12,7 @@ export default class Timer extends Component {
         sec: 2
       },
       POM: {
-        min: 0,
+        min: 20,
         sec: 2
       }
     };
