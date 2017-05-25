@@ -41,7 +41,7 @@ class Beetz extends Component {
     return (
       <div>
         <p className="instructions"> Press the space bar to play a fresh beet</p>
-        <img className="cat" src="../images/cat.png" />
+        <img className="cat float" src="../images/cat.png" />
         { this.playSong() }
         { this.playBeet() }
       </div>
