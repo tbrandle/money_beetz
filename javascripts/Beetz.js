@@ -37,7 +37,9 @@ class Beetz extends Component {
       const beet = dozBeetz[event.keyCode];
       const beetzArray = Object.keys(dozBeetz);
       if (beetzArray.includes(event.keyCode.toString())) {
-        beet.play();
+        beet.play()
+            .then(something => console.log(something))
+            .catch(error => console.log(error));
       }
       this.setState({ keyCode: event.keyCode });
     });
@@ -45,7 +47,7 @@ class Beetz extends Component {
 
   render() {
     return (
-      <div>
+      <div className="beetz-wrapper">
         <p className="instructions"> Press the space bar to play a fresh beet</p>
         <img className="cat float" src="../images/cat.png" />
         { this.playSong() }
