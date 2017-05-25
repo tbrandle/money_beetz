@@ -13,7 +13,7 @@ export default class Timer extends Component {
       },
       POM: {
         min: 0,
-        sec: 2
+        sec: 60
       }
     };
   }
@@ -29,7 +29,7 @@ export default class Timer extends Component {
           timeObj.min --;
         } else {
           this.setState({ startTime: false })
-          // const newState = 
+          // const newState =
           this.setState({ ['timeObj']: { min:0, sec:2 } })
           this.state.status === 'timer' ? this.setState({ status: 'POM' }) : this.setState({ status: 'timer' })
           clearInterval(intervalVariable)
