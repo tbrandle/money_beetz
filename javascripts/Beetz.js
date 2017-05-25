@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import songs from '../songs/songArray'
 const shuffle = require('shuffle-array')
 
-
 class Beetz extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       audio: []
     };
@@ -31,7 +30,8 @@ class Beetz extends Component {
   render() {
     return (
       <div>
-        <p>In the Beetz</p>
+        <p className='welcome'>Welcome to Money Beetz</p>
+        <p className="instructions"> Press the space bar to play a fresh beet</p>
         { this.playSound() }
         <img className='shadow-beet' height='100' width='100' src='../images/beetShadow.png'></img>
       </div>
