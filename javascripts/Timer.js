@@ -38,6 +38,7 @@ export default class Timer extends Component {
                 timerCountdown={ (sec, min) => this.timerCountdown(sec, min) }
                 min={ this.state.min }
                 sec={ this.state.sec } />
+
     }
   }
 
@@ -55,6 +56,4 @@ export default class Timer extends Component {
       </div>
     );
   }
-
-
 }

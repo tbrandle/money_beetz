@@ -14,6 +14,7 @@ export default class ChoiceWrapper extends Component {
     const { sec, min } = this.props
     this.props.timerCountdown(sec, min)
     this.setState({ selection: e.target.value})
+
   }
 
   render() {

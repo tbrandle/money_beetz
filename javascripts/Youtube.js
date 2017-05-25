@@ -46,7 +46,6 @@ class YoutubeFetch extends Component {
   render() {
     return (
       <section className="youtube-wrapper">
-        <h1>Youtube</h1>
         { this.appendVideos() }
       </section>
     );
