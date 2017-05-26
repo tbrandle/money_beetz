@@ -13,22 +13,25 @@ class Beetz extends Component {
       pickSong: shuffle.pick(songs),
       keyCode: 0
     };
+    this.playSong = this.playSong.bind(this);
+    this.playBeet = this.playBeet.bind(this);
   }
 
   componentDidMount() {
     this.setState({ playOneSong: false });
-    document.addEventListener('keydown', () => this.playSong(event))
-    document.addEventListener('keydown', () => this.playBeet(event))
+    document.addEventListener('keydown', this.playSong)
+    document.addEventListener('keydown', this.playBeet)
   };
 
   componentWillUnmount() {
     this.state.pickSong.pause();
-    document.removeEventListener('keydown', () => this.playSong(event))
-    document.removeEventListener('keydown', () => this.playBeet(event))
+    console.log("Component unmounted!");
+    document.removeEventListener('keydown', this.playSong)
+    document.removeEventListener('keydown', this.playBeet)
   };
 
-
   playSong(event) {
+    console.log(event);
       if (event.keyCode === 32 && this.state.playOneSong === false) {
         this.state.pickSong.play();
         this.setState({ playOneSong: true });

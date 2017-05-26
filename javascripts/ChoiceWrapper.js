@@ -25,7 +25,7 @@ export default class ChoiceWrapper extends Component {
         </div>
         { this.state.selection === '' && <p className='instructions'>Make a selection to start your POM</p> }
         { this.state.selection === 'youtube' && <YoutubeFetch />}
-        { this.state.selection === 'beetz' && <Beetz defProps={ this.props }/>}
+        { this.state.selection === 'beetz' && <Beetz defProps={ this.props } />}
       </div>
     );
   }
