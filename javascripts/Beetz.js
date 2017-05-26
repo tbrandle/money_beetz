@@ -17,7 +17,10 @@ class Beetz extends Component {
 
   componentDidMount() {
     this.setState({ playOneSong: false });
-  }
+    this.playSong()
+    this.playBeet()
+  };
+
 
   componentWillUnmount() {
     this.state.pickSong.pause();
@@ -34,9 +37,10 @@ class Beetz extends Component {
 
   playBeet() {
     document.addEventListener('keydown', (event) => {
-      const beet = dozBeetz[event.keyCode];
-      const beetzArray = Object.keys(dozBeetz);
-      if (beetzArray.includes(event.keyCode.toString())) {
+      const beet = dozBeetz[event.keyCode]
+      const beetzArray = Object.keys(dozBeetz)
+      if(beetzArray.includes(event.keyCode.toString())) {
+        beet.currentTime = 0;
         beet.play()
             .then(something => console.log(something))
             .catch(error => console.log(error));
@@ -50,17 +54,15 @@ class Beetz extends Component {
       <div className="beetz-wrapper">
         <p className="instructions"> Press the space bar to play a fresh beet</p>
         <img className="cat float" src="../images/cat.png" />
-        { this.playSong() }
-        { this.playBeet() }
         <section className="beat-machine">
-          <div id="81" className="block">Q</div>
-          <div id="87" className="block">W</div>
-          <div id="69" className="block">E</div>
-          <div id="82" className="block">R</div>
-          <div id="65" className="block">A</div>
-          <div id="83" className="block">S</div>
-          <div id="68" className="block">D</div>
-          <div id="70" className="block">F</div>
+          <div data-key="81" className="block">Q</div>
+          <div data-key="87" className="block">W</div>
+          <div data-key="69" className="block">E</div>
+          <div data-key="82" className="block">R</div>
+          <div data-key="65" className="block">A</div>
+          <div data-key="83" className="block">S</div>
+          <div data-key="68" className="block">D</div>
+          <div data-key="70" className="block">F</div>
         </section>
       </div>
     );
