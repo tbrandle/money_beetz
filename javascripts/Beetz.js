@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import songs from '../songs/songArray';
 import dozBeetz from '../wav/drummingBeetz';
+
 const shuffle = require('shuffle-array');
 
 class Beetz extends Component {
@@ -12,27 +13,27 @@ class Beetz extends Component {
       pickSong: shuffle.pick(songs),
       keyCode: 0
     };
-  };
+  }
 
   componentDidMount() {
     this.setState({ playOneSong: false });
-    console.log("component did mount");
     this.playSong()
     this.playBeet()
   };
 
+
   componentWillUnmount() {
     this.state.pickSong.pause();
-  };
+  }
 
   playSong() {
     document.addEventListener('keydown', (event) => {
       if (event.keyCode === 32 && this.state.playOneSong === false) {
         this.state.pickSong.play();
         this.setState({ playOneSong: true });
-      };
+      }
     });
-  };
+  }
 
   playBeet() {
     document.addEventListener('keydown', (event) => {
@@ -42,10 +43,10 @@ class Beetz extends Component {
         beet.currentTime = 0;
         beet.play()
             .then(something => console.log(something))
-            .catch(error => console.log(error))
+            .catch(error => console.log(error));
       }
-      this.setState({ keyCode: event.keyCode })
-    })
+      this.setState({ keyCode: event.keyCode });
+    });
   }
 
   render() {
@@ -65,7 +66,7 @@ class Beetz extends Component {
         </section>
       </div>
     );
-  };
-};
+  }
+}
 
 export default Beetz;
