@@ -16,26 +16,24 @@ class Beetz extends Component {
 
   componentDidMount() {
     this.setState({ playOneSong: false });
-    console.log("component did mount");
-    this.playSong()
-    this.playBeet()
+    document.addEventListener('keydown', () => this.playSong(event))
+    document.addEventListener('keydown', () => this.playBeet(event))
   };
 
   componentWillUnmount() {
     this.state.pickSong.pause();
+    document.removeEventListener('keydown', () => this.playSong(event))
+    document.removeEventListener('keydown', () => this.playBeet(event))
   };
 
-  playSong() {
-    document.addEventListener('keydown', (event) => {
+  playSong(event) {
       if (event.keyCode === 32 && this.state.playOneSong === false) {
         this.state.pickSong.play();
         this.setState({ playOneSong: true });
       };
-    });
-  };
+  }
 
-  playBeet() {
-    document.addEventListener('keydown', (event) => {
+  playBeet(event) {
       const beet = dozBeetz[event.keyCode]
       const beetzArray = Object.keys(dozBeetz)
       if(beetzArray.includes(event.keyCode.toString())) {
@@ -45,7 +43,6 @@ class Beetz extends Component {
             .catch(error => console.log(error))
       }
       this.setState({ keyCode: event.keyCode })
-    })
   }
 
   render() {
