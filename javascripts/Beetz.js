@@ -25,7 +25,6 @@ class Beetz extends Component {
 
   componentWillUnmount() {
     this.state.pickSong.pause();
-    console.log("Component unmounted!");
     document.removeEventListener('keydown', this.playSong)
     document.removeEventListener('keydown', this.playBeet)
   };
