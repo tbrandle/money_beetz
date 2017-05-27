@@ -30,7 +30,6 @@ class Beetz extends Component {
   };
 
   playSong(event) {
-    console.log(event);
       if (event.keyCode === 32 && this.state.playOneSong === false) {
         this.state.pickSong.play();
         this.setState({ playOneSong: true });
@@ -38,31 +37,45 @@ class Beetz extends Component {
   }
 
   playBeet(event) {
-      const beet = dozBeetz[event.keyCode]
-      const beetzArray = Object.keys(dozBeetz)
-      if(beetzArray.includes(event.keyCode.toString())) {
-        beet.currentTime = 0;
-        beet.play()
-            .then(something => console.log(something))
-            .catch(error => console.log(error));
-      }
-      this.setState({ keyCode: event.keyCode })
+    const { keyCode } = this.state;
+    const beet = dozBeetz[event.keyCode]
+    const beetzArray = Object.keys(dozBeetz)
+    if(beetzArray.includes(event.keyCode.toString())) {
+      this.animateKey(event.keyCode)
+      beet.currentTime = 0;
+      beet.play()
+          .then(something => console.log(something))
+          .catch(error => console.log(error));
+      console.log(this.refs[event.keyCode]);
+    }
+  }
+
+  animateKey(keyCode){
+    this.refs[keyCode].classList.add('active')
+    this.refs[keyCode].addEventListener('transitionend', this.removeClass)
+  }
+
+  removeClass(e){
+    if(e.propertyName !== "transform") return;
+    this.classList.remove('active');
+
   }
 
   render() {
+    const { keyCode } = this.state
     return (
       <div className="beetz-wrapper">
         <p className="instructions"> Press the space bar to play a fresh beet</p>
         <img className="cat float" src="../images/cat.png" />
         <section className="beat-machine">
-          <div data-key="81" className="block">Q</div>
-          <div data-key="87" className="block">W</div>
-          <div data-key="69" className="block">E</div>
-          <div data-key="82" className="block">R</div>
-          <div data-key="65" className="block">A</div>
-          <div data-key="83" className="block">S</div>
-          <div data-key="68" className="block">D</div>
-          <div data-key="70" className="block">F</div>
+          <div ref="81" className="block" >Q</div>
+          <div ref="87" className="block">W</div>
+          <div ref="69" className="block">E</div>
+          <div ref="82" className="block">R</div>
+          <div ref="65" className="block">A</div>
+          <div ref="83" className="block">S</div>
+          <div ref="68" className="block">D</div>
+          <div ref="70" className="block">F</div>
         </section>
       </div>
     );
