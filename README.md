@@ -14,6 +14,6 @@ bash
 npm install
 npm run-script watch
 
-# open a new terminal
+open a new terminal
 npm start
 
